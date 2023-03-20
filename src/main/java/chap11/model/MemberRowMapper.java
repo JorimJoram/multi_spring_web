@@ -13,7 +13,7 @@ public class MemberRowMapper implements RowMapper<Member>{
 				rs.getString("password"), rs.getString("name"),
 				rs.getTimestamp("regdate").toLocalDateTime());
 		member.setId(rs.getLong("id"));
-		return member;
+		return member; //test
 	}
 	
 }
