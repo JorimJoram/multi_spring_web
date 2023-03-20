@@ -14,10 +14,15 @@ import chap11.model.*;
 @Controller
 public class RegisterController {
 	private MemberRegisterService memberRegisterService;
+	private ChangePasswordService changePasswordService;
 	
 	public void setMemberRegisterService(
 			MemberRegisterService memberRegisterService) {
 		this.memberRegisterService = memberRegisterService;
+	}
+	
+	public void setChangePasswordService(ChangePasswordService changePasswordService) {
+		this.changePasswordService = changePasswordService;
 	}
 	
 	@RequestMapping("/register/step1")
@@ -72,5 +77,25 @@ public class RegisterController {
 	@GetMapping("/main/")
 	public String Main() {
 		return "register/main";
+	}
+	
+	@GetMapping("/register/change")
+	public String changePassword(Model model) {
+		return "register/change";
+	}
+	@PostMapping("register/change")
+	public String change(ChangeRequest chgReq) {
+		String view = "";
+		System.out.println(chgReq.getEmail());
+		System.out.println(chgReq.getNewPassword());
+		try {
+			changePasswordService.changePassword(chgReq.getEmail(), chgReq.getOldPassword(), chgReq.getNewPassword());
+			view = "/register/main";
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			view = "/register/change";
+		}
+		
+		return view;
 	}
 }
