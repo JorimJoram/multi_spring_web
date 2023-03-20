@@ -36,13 +36,10 @@
   	</init-param>
   	<init-param>
   		<param-name>contextConfigLocation</param-name>
-  		
-
   		<param-value>
   			chap11.config.MvcConfig
   			chap11.config.ControllerConfig
   			chap11.config.MemberConfig
-  			
   		</param-value>
 
   		 <!--  
