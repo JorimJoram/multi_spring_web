@@ -4,8 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Change</title>
-	<style>
-	</style>
+	<script src="/mySpringWeb/res/script/changePasswdScript.js" charset="UTF-8"></script>
 </head>
 
 <body>
@@ -13,7 +12,7 @@
 	<h1>ChangePassword</h1>
 	<hr>
 	
-	<form action="changeProcess" method="post">
+	<form action="changeProcess" method="post" id="changePasswd">
 		<fieldset>
 			<legend>비밀번호 변경</legend>
 			
@@ -27,7 +26,7 @@
 			<input type="password" id="newPassword" name="newPassword" required/>
 			
 			<label>변경 비밀번호 확인</label>
-			<input type="password" id="confirmPassword" name="confirmPassword" required/>
+			<input type="password" id="confirmPassword" required/>
 			
 			<input type="submit" value="Submit"/>
 		</fieldset>
