@@ -12,8 +12,7 @@
 	<hr>
 	
 	<p>
-		인사말: <%= request.getAttribute("greeting") %><br>
-		인사말: ${greeting }
+		인사말: ${greeting }님 환영합니다.
 	</p>
 	
 </body>
