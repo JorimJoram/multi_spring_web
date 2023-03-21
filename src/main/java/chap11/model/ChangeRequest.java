@@ -2,9 +2,15 @@ package chap11.model;
 
 public class ChangeRequest {
 	private String email;
-	private String oldPassword;
+	private String password;
 	private String newPassword;
+	private String confirmPassword;
 	
+	@Override
+	public String toString() {
+		return String.format(this.email +"\t" +this.password + "\t" +this.newPassword + "\t" +this.confirmPassword);
+	}
+
 	public ChangeRequest() {
 		
 	}
@@ -13,9 +19,6 @@ public class ChangeRequest {
 		return email;
 	}
 
-	public String getOldPassword() {
-		return oldPassword;
-	}
 
 	public String getNewPassword() {
 		return newPassword;
@@ -25,8 +28,20 @@ public class ChangeRequest {
 		this.email = email;
 	}
 
-	public void setOldPassword(String oldPassword) {
-		this.oldPassword = oldPassword;
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public void setNewPassword(String newPassword) {

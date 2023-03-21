@@ -25,4 +25,23 @@ private MemberDao memberDao;
 		member.changePassword(oldPassword, newPassword);
 		memberDao.update(member);
 	}
+	
+	public void changePassword(String email, String oldPassword, String newPassword, String confirmPassword) {
+		Member member = memberDao.selectByEmail(email);
+		
+		if(member == null) {
+			throw new MemberNotFoundException();
+		}
+		
+		if(oldPassword.equals(newPassword)) {
+			throw new WrongIdPasswordException();
+		}
+		
+		if(!newPassword.equals(confirmPassword)) {
+			throw new WrongNewPasswordException();
+		}
+		
+		member.changePassword(oldPassword, newPassword);
+		memberDao.update(member);
+	}
 }
