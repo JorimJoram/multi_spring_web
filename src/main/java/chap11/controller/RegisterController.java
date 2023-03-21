@@ -24,11 +24,12 @@ public class RegisterController {
 	public void setChangePasswordService(ChangePasswordService changePasswordService) {
 		this.changePasswordService = changePasswordService;
 	}
-	
+	/*
 	@RequestMapping("/register/step1")
 	public String handleStep1() {
 		return "register/step1";
 	}
+	*/
 	@PostMapping("/register/step2")
 	public String handleStep2(@RequestParam(value="agree", defaultValue="false") boolean agree, Model model) {
 		String view = "";
@@ -74,28 +75,9 @@ public class RegisterController {
 		return view;
 	}
 	
-	@GetMapping("/main/")
+	@GetMapping("/main")
 	public String Main() {
 		return "register/main";
 	}
 	
-	@GetMapping("/register/change")
-	public String changePassword(Model model) {
-		return "register/change";
-	}
-	@PostMapping("register/change")
-	public String change(ChangeRequest chgReq) {
-		String view = "";
-		System.out.println(chgReq.getEmail());
-		System.out.println(chgReq.getNewPassword());
-		try {
-			changePasswordService.changePassword(chgReq.getEmail(), chgReq.getOldPassword(), chgReq.getNewPassword());
-			view = "/register/main";
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-			view = "/register/change";
-		}
-		
-		return view;
-	}
 }

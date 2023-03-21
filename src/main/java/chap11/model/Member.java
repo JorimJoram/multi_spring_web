@@ -42,6 +42,10 @@ public class Member {
 	public String getPassword() {
 		return password;
 	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getName() {
 		return name;
@@ -61,5 +65,7 @@ public class Member {
 		return "id: "+ id + " email: "+email + " name: "+name
 				+" password: "+password;
 	}
-	
+	public boolean checkPassword(String password) {
+		return this.password.equals(password);
+	}
 }
