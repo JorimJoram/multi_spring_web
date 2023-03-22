@@ -11,7 +11,10 @@
 			border-collapse: collapse;
 		}
 		td{
-			padding: 10px;
+			padding: 5px 10px;
+		}
+		td.num{
+			text-align:center;
 		}
 	</style>
 </head>
@@ -20,12 +23,14 @@
 	<hr>
 	<table>
 		<tr>
+			<th>번호</th>
 			<th>이메일</th>
 			<th>이름</th>
 			<th>생성일자</th>
 		</tr>
-		<c:forEach var="member" items="${memberList }">
+		<c:forEach var="member" items="${memberList }" varStatus="status">
 			<tr>
+				<td class="num">${status.count }</td>
 				<td>${member.email }</td>
 				<td>${member.name }</td>
 				<td>${member.registerDateTime }</td>

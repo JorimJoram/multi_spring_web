@@ -7,14 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 import chap11.controller.*;
 import chap11.model.*;
+import chap11.survey.*;
 
 @Configuration
 public class ControllerConfig {
 	
 	@Autowired
 	private MemberRegisterService memberRegisterService;
-	@Autowired
-	private ChangePasswordService changePasswordService;
 	
 	@Bean
 	public RegisterController registerController() {
@@ -27,5 +26,10 @@ public class ControllerConfig {
 	public MemberController memberController() {
 		MemberController mc = new MemberController();
 		return mc;
+	}
+	
+	@Bean
+	public SurveyController surveyController() {
+		return new SurveyController();
 	}
 }
